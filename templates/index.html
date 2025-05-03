@@ -1,50 +1,56 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Аффинные преобразования</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<meta charset="UTF-8">
+	<title>Аффинные преобразования</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
-  <h1>Вариант 23: аффинные преобразования</h1>
+	<h1>Вариант 23: аффинные преобразования</h1>
 
-  <canvas id="canvas" width="600" height="400"></canvas>
+	<div class="container">
+		<canvas id="canvas" width="600" height="400"></canvas>
 
-  <div class="controls">
-    <!-- Перенос -->
-    <fieldset>
-      <legend>Перенести</legend>
-      dx:<input id="dx" type="number" step="1" value="0">
-      dy:<input id="dy" type="number" step="1" value="0">
-      <button data-op="translate">Go</button>
-    </fieldset>
 
-    <!-- Вращение -->
-    <fieldset>
-      <legend>Повернуть</legend>
-      θ (°):<input id="angle" type="number" step="1" value="0">
-      cx:<input id="cxr" type="number" step="1" value="250">
-      cy:<input id="cyr" type="number" step="1" value="200">
-      <button data-op="rotate">Go</button>
-    </fieldset>
+		<div class="controls">
+			<!-- Перенос -->
+			<fieldset>
+				<legend>Перенести</legend>
+				dx:<input id="dx" type="number" step="1" value="0">
+				dy:<input id="dy" type="number" step="1" value="0">
+				<button data-op="translate">Go</button>
+			</fieldset>
 
-    <!-- Масштаб -->
-    <fieldset>
-      <legend>Масштабировать</legend>
-      kx:<input id="kx" type="number" step="0.1" value="1">
-      ky:<input id="ky" type="number" step="0.1" value="1">
-      cx:<input id="cxs" type="number" step="1" value="250">
-      cy:<input id="cys" type="number" step="1" value="200">
-      <button data-op="scale">Go</button>
-    </fieldset>
+			<!-- Вращение -->
+			<fieldset>
+				<legend>Повернуть</legend>
+				θ (°):<input id="angle" type="number" step="1" value="0">
+				cx:<input id="cxr" type="number" step="1" value="250">
+				cy:<input id="cyr" type="number" step="1" value="200">
+				<button data-op="rotate">Go</button>
+			</fieldset>
 
-    <button id="reset">Сбросить</button>
-  </div>
+			<!-- Масштаб -->
+			<fieldset>
+				<legend>Масштабировать</legend>
+				kx:<input id="kx" type="number" step="0.1" value="1">
+				ky:<input id="ky" type="number" step="0.1" value="1">
+				cx:<input id="cxs" type="number" step="1" value="250">
+				cy:<input id="cys" type="number" step="1" value="200">
+				<button data-op="scale">Go</button>
+			</fieldset>
 
-  <script>
-    // Передадим initial shape из Flask
-    const INITIAL_SHAPE = JSON.parse('{{ shape|tojson|safe }}');
-  </script>
-  <script src="{{ url_for('static', filename='main.js') }}"></script>
+			<button id="reset">Сбросить</button>
+		</div>
+	</div>
+
+	<script>
+		// Передадим initial shape из Flask
+		const INITIAL_SHAPE = JSON.parse('{{ shape|tojson|safe }}');
+	</script>
+	<script src="{{ url_for('static', filename='main.js') }}"></script>
 </body>
+
 </html>
