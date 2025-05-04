@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аффинные преобразования</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>Аффинные преобразования</h1>
+    <p class="subtitle">Вариант 23: интерактивное преобразование W-образной фигуры</p>
+
+    <div class="container">
+        <div class="canvas-wrapper">
+            <canvas id="canvas" width="600" height="400"></canvas>
+        </div>
+
+        <div class="controls">
+            <!-- Перенос -->
+            <fieldset>
+                <legend>Перенос</legend>
+                <div class="input-group">
+                    <label for="dx">dx:</label>
+                    <input id="dx" type="number" step="1" value="0">
+                </div>
+                <div class="input-group">
+                    <label for="dy">dy:</label>
+                    <input id="dy" type="number" step="1" value="0">
+                </div>
+                <button data-op="translate">Применить</button>
+            </fieldset>
+
+            <!-- Вращение -->
+            <fieldset>
+                <legend>Вращение</legend>
+                <div class="input-group">
+                    <label for="angle">θ (°):</label>
+                    <input id="angle" type="number" step="1" value="0">
+                </div>
+                <div class="input-group">
+                    <label for="cxr">cx:</label>
+                    <input id="cxr" type="number" step="1" value="350">
+                </div>
+                <div class="input-group">
+                    <label for="cyr">cy:</label>
+                    <input id="cyr" type="number" step="1" value="200">
+                </div>
+                <button data-op="rotate">Применить</button>
+            </fieldset>
+
+            <!-- Масштаб -->
+            <fieldset>
+                <legend>Масштабирование</legend>
+                <div class="input-group">
+                    <label for="kx">kx:</label>
+                    <input id="kx" type="number" step="0.1" value="1">
+                </div>
+                <div class="input-group">
+                    <label for="ky">ky:</label>
+                    <input id="ky" type="number" step="0.1" value="1">
+                </div>
+                <div class="input-group">
+                    <label for="cxs">cx:</label>
+                    <input id="cxs" type="number" step="1" value="350">
+                </div>
+                <div class="input-group">
+                    <label for="cys">cy:</label>
+                    <input id="cys" type="number" step="1" value="200">
+                </div>
+                <button data-op="scale">Применить</button>
+            </fieldset>
+
+            <button id="reset">Сбросить все изменения</button>
+        </div>
+    </div>
+
+    <!-- Модульные скрипты с type="module" для поддержки import/export -->
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html> 
